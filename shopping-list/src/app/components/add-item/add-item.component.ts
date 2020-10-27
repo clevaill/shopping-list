@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { ShoppingService } from '../../services/shopping.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-item',
@@ -16,7 +17,8 @@ export class AddItemComponent implements OnInit {
 
   constructor(
     private shoppingService: ShoppingService,
-    private _location: Location) { }
+    private _location: Location,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,19 +32,15 @@ export class AddItemComponent implements OnInit {
       name: this.item.name,
       quantity: this.item.quantity
     };
-
-    this.shoppingService.createItem(data)
+    if(data.name !== '' && data.quantity !== '') {
+      this.shoppingService.createItem(data)
       .subscribe(
+        response => {
+          this.router.navigate(['/item']);
+        },
         error => {
           console.log(error);
         });
+    }
   }
-
-  newItem(): void {
-    this.item = {
-      name: '',
-      quantity: ''
-    };
-  }
-
 }
