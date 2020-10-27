@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../../services/shopping.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list',
@@ -13,7 +14,9 @@ export class ShoppingListComponent implements OnInit {
   currentIndex = -1;
   name = '';
 
-  constructor(private shoppingService: ShoppingService) { }
+  constructor(
+    private shoppingService: ShoppingService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveItems();
@@ -46,6 +49,7 @@ export class ShoppingListComponent implements OnInit {
       .subscribe(
         response => {
           this.refreshList();
+          this.router.navigate(['/add']);
         },
         error => {
           console.log(error);

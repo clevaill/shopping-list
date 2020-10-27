@@ -26,16 +26,18 @@
         </div>
       </div>
         <div class="button">
-          <button class="badge badge-danger mr-2" (click)="deleteItem()">
+          <button class="mt-3 btn btn-sm btn-danger" (click)="deleteItem()">
             Delete
           </button>
-          <button
+          <div class="update-button">
+            <button
             type="submit"
-            class="badge badge-success"
+            class="mt-3 btn btn-sm btn-success"
             (click)="updateItem()"
-          >
-            Update
-          </button>
+            >
+              Update
+            </button>
+          </div>
         </div>
         <div class="message">
           <p>{{ message }}</p>

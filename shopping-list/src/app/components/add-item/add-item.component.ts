@@ -12,7 +12,6 @@ export class AddItemComponent implements OnInit {
     name: '',
     quantity: ''
   };
-  submitted = false;
 
   constructor(private shoppingService: ShoppingService) { }
 
@@ -27,17 +26,12 @@ export class AddItemComponent implements OnInit {
 
     this.shoppingService.createItem(data)
       .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        },
         error => {
           console.log(error);
         });
   }
 
   newItem(): void {
-    this.submitted = false;
     this.item = {
       name: '',
       quantity: ''

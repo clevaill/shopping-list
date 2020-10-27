@@ -4,39 +4,32 @@
   </div>
   <div class="form">
     <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            required
-            [(ngModel)]="item.name"
-            name="name"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="quantity">Quantity</label>
-          <input
-            type="number"
-            class="form-control"
-            id="quantity"
-            required
-            [(ngModel)]="item.quantity"
-            name="quantity"
-          />
-        </div>
-        <div class="button">
-          <button (click)="saveItem()" class="btn btn-success">Submit</button>
-        </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="item.name"
+          name="name"
+        />
       </div>
-    </div>
 
-    <div *ngIf="submitted">
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newItem()">Add</button>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          id="quantity"
+          required
+          [(ngModel)]="item.quantity"
+          name="quantity"
+        />
+      </div>
+      <div class="button">
+        <button routerLink="/item/" (click)="saveItem()" class="btn btn-success">Submit</button>
+      </div>
     </div>
   </div>
 </div>

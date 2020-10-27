@@ -41,7 +41,7 @@ export class ShoppingDetailsComponent implements OnInit {
     this.shoppingService.updateItem(this.currentItem._id, data)
       .subscribe(
         response => {
-          this.message = 'The item was updated successfully!';
+          this.router.navigate(['/item']);
         },
         error => {
           console.log(error);
