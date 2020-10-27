@@ -4,6 +4,10 @@
     <div class="title">
       <h4>Shopping List</h4>      
     </div>
+    <div class="title" [hidden]="emptyItems">
+      <br />
+      <p>There are no items in the list</p>
+    </div>
     <nav>
       <ul class="list-group">
         <li 
@@ -23,9 +27,14 @@
       <button class="mt-3 btn btn-sm btn-secondary" (click)="backClicked()">
         Back
       </button>
-      <div class="remove-button">
+      <div *ngIf="fullItems" class="remove-button">
         <button class="mt-3 btn btn-sm btn-danger" (click)="removeAllItems()">
           Remove All
+        </button>
+      </div>
+      <div [hidden]="emptyItems" class="remove-button">
+        <button class="mt-3 btn btn-sm btn-danger" routerLink="/add">
+          Add Item
         </button>
       </div>
     </div>

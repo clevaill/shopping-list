@@ -14,6 +14,8 @@ export class ShoppingListComponent implements OnInit {
   currentItem = null;
   currentIndex = -1;
   name = '';
+  emptyItems = false;
+  fullItems  = false;
 
   constructor(
     private shoppingService: ShoppingService,
@@ -33,6 +35,14 @@ export class ShoppingListComponent implements OnInit {
       .subscribe(
         data => {
           this.items = data;
+          if (this.items.length === 0) {
+            this.emptyItems = false;
+          } else {
+            this.emptyItems = true;
+          }
+          if (this.items.length > 0) {
+            this.fullItems = true;
+          }
         },
         error => {
           console.log(error);
