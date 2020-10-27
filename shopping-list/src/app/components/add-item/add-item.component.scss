@@ -14,5 +14,8 @@
     .button {
         display: flex;
         justify-content: center;
+        .submit-button {
+            margin-left: auto;
+        }
     }
 }

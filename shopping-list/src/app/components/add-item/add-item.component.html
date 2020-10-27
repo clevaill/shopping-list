@@ -1,11 +1,6 @@
 <div class="container">
-  <div>
-    <button class="mt-3 btn btn-sm btn-secondary" (click)="backClicked()">
-      Back
-    </button>
-    <div class="title">
-      <h4>Add item</h4>      
-    </div>
+  <div class="title">
+    <h4>Add item</h4>      
   </div>
   <div class="form">
     <div class="submit-form">
@@ -33,7 +28,12 @@
         />
       </div>
       <div class="button">
-        <button routerLink="/item/" (click)="saveItem()" class="btn btn-success">Submit</button>
+        <button class="mt-3 btn btn-sm btn-secondary" (click)="backClicked()">
+          Back
+        </button>
+        <div class="submit-button">
+          <button routerLink="/item/" (click)="saveItem()" class="mt-3 btn btn-sm btn-success">Submit</button>
+        </div>
       </div>
     </div>
   </div>
