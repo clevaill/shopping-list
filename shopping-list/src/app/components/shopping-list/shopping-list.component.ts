@@ -24,7 +24,6 @@ export class ShoppingListComponent implements OnInit {
       .subscribe(
         data => {
           this.items = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -46,7 +45,6 @@ export class ShoppingListComponent implements OnInit {
     this.shoppingService.deleteAllItems()
       .subscribe(
         response => {
-          console.log(response);
           this.refreshList();
         },
         error => {

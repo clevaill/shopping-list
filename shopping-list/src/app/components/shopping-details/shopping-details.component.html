@@ -1,7 +1,9 @@
-<div style="width: 400px; margin: auto;">
+<div class="container">
     <div *ngIf="currentItem" class="edit-form">
-      <h4>Item</h4>
-      <form>
+      <div class="title">
+        <h4>Item</h4>      
+      </div>
+      <div class="form">
         <div class="form-group">
           <label for="name">Name</label>
           <input
@@ -22,18 +24,22 @@
             name="quantity"
           />
         </div>
-      </form>
-      <button class="badge badge-danger mr-2" (click)="deleteItem()">
-        Delete
-      </button>
-      <button
-        type="submit"
-        class="badge badge-success"
-        (click)="updateItem()"
-      >
-        Update
-      </button>
-      <p>{{ message }}</p>
+      </div>
+        <div class="button">
+          <button class="badge badge-danger mr-2" (click)="deleteItem()">
+            Delete
+          </button>
+          <button
+            type="submit"
+            class="badge badge-success"
+            (click)="updateItem()"
+          >
+            Update
+          </button>
+        </div>
+        <div class="message">
+          <p>{{ message }}</p>
+        </div>
     </div>
   
     <div *ngIf="!currentItem">

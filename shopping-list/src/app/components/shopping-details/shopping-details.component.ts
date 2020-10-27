@@ -27,7 +27,6 @@ export class ShoppingDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentItem = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -42,7 +41,6 @@ export class ShoppingDetailsComponent implements OnInit {
     this.shoppingService.updateItem(this.currentItem._id, data)
       .subscribe(
         response => {
-          console.log(response);
           this.message = 'The item was updated successfully!';
         },
         error => {
@@ -54,7 +52,6 @@ export class ShoppingDetailsComponent implements OnInit {
     this.shoppingService.deleteItem(this.currentItem._id)
       .subscribe(
         response => {
-          console.log(response);
           this.router.navigate(['/item']);
         },
         error => {
