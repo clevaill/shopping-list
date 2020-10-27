@@ -35,7 +35,11 @@ export class ShoppingDetailsComponent implements OnInit {
   }
 
   updateItem(): void {
-    this.shoppingService.updateItem(this.currentItem._id, this.currentItem)
+    const data = {
+      name: this.currentItem.name,
+      quantity: this.currentItem.quantity
+    };
+    this.shoppingService.updateItem(this.currentItem._id, data)
       .subscribe(
         response => {
           console.log(response);

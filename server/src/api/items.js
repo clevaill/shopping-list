@@ -67,7 +67,7 @@ router.delete('/', async (req, res, next) => {
     try {
         await items.remove({});
         res.json({
-            message: 'Sucess',
+            message: 'Success',
         });
     } catch (error) {
         next(error);
@@ -79,7 +79,7 @@ router.delete('/:id', async (req, res, next) => {
         const { id } = req.params;
         await items.remove({ _id: id });
         res.json({
-            message: 'Sucess',
+            message: 'Success',
         });
     } catch (error) {
         next(error);
