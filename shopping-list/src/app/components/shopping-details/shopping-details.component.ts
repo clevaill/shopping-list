@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../../services/shopping.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shopping-details',
@@ -15,11 +16,16 @@ export class ShoppingDetailsComponent implements OnInit {
   constructor(
     private shoppingService: ShoppingService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.message = '';
     this.getItem(this.route.snapshot.paramMap.get('id'));
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   getItem(id): void {

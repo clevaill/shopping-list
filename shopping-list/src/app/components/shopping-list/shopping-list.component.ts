@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../../services/shopping.service';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shopping-list',
@@ -16,10 +17,15 @@ export class ShoppingListComponent implements OnInit {
 
   constructor(
     private shoppingService: ShoppingService,
-    private router: Router) { }
+    private router: Router,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.retrieveItems();
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   retrieveItems(): void {
@@ -42,6 +48,7 @@ export class ShoppingListComponent implements OnInit {
   setActiveItem(item, index): void {
     this.currentItem = item;
     this.currentIndex = index;
+    this.router.navigate([`/item/${this.currentItem._id}`]);
   }
 
   removeAllItems(): void {

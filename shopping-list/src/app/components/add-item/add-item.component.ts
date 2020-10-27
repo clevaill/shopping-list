@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { ShoppingService } from '../../services/shopping.service';
 
 @Component({
@@ -13,9 +14,15 @@ export class AddItemComponent implements OnInit {
     quantity: ''
   };
 
-  constructor(private shoppingService: ShoppingService) { }
+  constructor(
+    private shoppingService: ShoppingService,
+    private _location: Location) { }
 
   ngOnInit(): void {
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   saveItem(): void {
