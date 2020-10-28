@@ -37,9 +37,13 @@ export class AddItemComponent implements OnInit {
     };
     if (data.name === ''){
       this.nameRequired = true;
+    } else {
+      this.nameRequired = false;
     }
     if (data.quantity === '') {
       this.quantityRequired = true;
+    } else {
+      this.quantityRequired = false;
     }
     if(data.name !== '' && data.quantity !== '') {
       this.shoppingService.createItem(data)
