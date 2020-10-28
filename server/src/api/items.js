@@ -8,6 +8,7 @@ const items = db.get('items');
 const schema = Joi.object({
     name: Joi.string().trim().required(),
     quantity: Joi.number().required(),
+    note: Joi.string().optional().allow(''),
     taked: Joi.boolean()
 })
 

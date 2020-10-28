@@ -12,6 +12,7 @@ export class AddItemComponent implements OnInit {
   item = {
     name: '',
     quantity: '',
+    note: '',
     taked: false
   };
 
@@ -34,6 +35,7 @@ export class AddItemComponent implements OnInit {
     const data = {
       name: this.item.name,
       quantity: this.item.quantity,
+      note: this.item.note,
       taked: this.item.taked
     };
     if (data.name === '') {
