@@ -9,9 +9,29 @@
     justify-content: center;
   }
 
+  .no-check {
+    background-color: green;
+  }
+
+  .check {
+    background-color: red;
+  }
+
   .item {
     display: flex;
     justify-content: center;
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    .green {
+      color: green;
+    }
+    .red {
+      color: red;
+    }
   }
 
   .button {

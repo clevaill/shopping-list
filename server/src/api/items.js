@@ -7,7 +7,8 @@ const items = db.get('items');
 
 const schema = Joi.object({
     name: Joi.string().trim().required(),
-    quantity: Joi.number().required()
+    quantity: Joi.number().required(),
+    taked: Joi.boolean()
 })
 
 const router = express.Router();
