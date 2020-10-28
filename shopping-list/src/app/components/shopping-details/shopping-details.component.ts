@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../../services/shopping.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shopping-details',
   templateUrl: './shopping-details.component.html',
-  styleUrls: ['./shopping-details.component.scss']
+  styleUrls: ['./shopping-details.component.scss'],
 })
 export class ShoppingDetailsComponent implements OnInit {
-
   currentItem = null;
   message = '';
 
@@ -17,7 +16,8 @@ export class ShoppingDetailsComponent implements OnInit {
     private shoppingService: ShoppingService,
     private route: ActivatedRoute,
     private router: Router,
-    private _location: Location) { }
+    private _location: Location
+  ) {}
 
   ngOnInit(): void {
     this.message = '';
@@ -29,40 +29,39 @@ export class ShoppingDetailsComponent implements OnInit {
   }
 
   getItem(id): void {
-    this.shoppingService.getItem(id)
-      .subscribe(
-        data => {
-          this.currentItem = data;
-        },
-        error => {
-          console.log(error);
-        });
+    this.shoppingService.getItem(id).subscribe(
+      (data) => {
+        this.currentItem = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   updateItem(): void {
     const data = {
       name: this.currentItem.name,
-      quantity: this.currentItem.quantity
+      quantity: this.currentItem.quantity,
     };
-    this.shoppingService.updateItem(this.currentItem._id, data)
-      .subscribe(
-        response => {
-          this.router.navigate(['/item']);
-        },
-        error => {
-          console.log(error);
-        });
+    this.shoppingService.updateItem(this.currentItem._id, data).subscribe(
+      (response) => {
+        this.router.navigate(['/item']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   deleteItem(): void {
-    this.shoppingService.deleteItem(this.currentItem._id)
-      .subscribe(
-        response => {
-          this.router.navigate(['/item']);
-        },
-        error => {
-          console.log(error);
-        });
+    this.shoppingService.deleteItem(this.currentItem._id).subscribe(
+      (response) => {
+        this.router.navigate(['/item']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 }

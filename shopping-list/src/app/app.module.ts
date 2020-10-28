@@ -14,15 +14,10 @@ import { AddItemComponent } from './components/add-item/add-item.component';
     AppComponent,
     ShoppingListComponent,
     ShoppingDetailsComponent,
-    AddItemComponent
+    AddItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

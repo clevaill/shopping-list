@@ -23,7 +23,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         const item = await items.findOne({
             _id: id,
         });
@@ -46,7 +48,9 @@ router.post('/', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         const value = await schema.validateAsync(req.body);
         const item = await items.findOne({
             _id: id,
@@ -76,8 +80,12 @@ router.delete('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
     try {
-        const { id } = req.params;
-        await items.remove({ _id: id });
+        const {
+            id
+        } = req.params;
+        await items.remove({
+            _id: id
+        });
         res.json({
             message: 'Success',
         });

@@ -5,11 +5,10 @@ import { Observable } from 'rxjs';
 const baseUrl = 'http://localhost:4242/api/v1/items';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShoppingService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllItems(): Observable<any> {
     return this.http.get(baseUrl);
@@ -34,5 +33,4 @@ export class ShoppingService {
   deleteAllItems(): Observable<any> {
     return this.http.delete(baseUrl);
   }
-
 }
