@@ -28,6 +28,7 @@
           required
           [(ngModel)]="item.quantity"
           name="quantity"
+          min="1"
         />
         <div class="required" *ngIf="quantityRequired">
           The quantity field is required
