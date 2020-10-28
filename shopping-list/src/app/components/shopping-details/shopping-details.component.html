@@ -19,6 +19,9 @@
           [(ngModel)]="currentItem.name"
           name="name"
         />
+        <div class="required" *ngIf="nameRequired">
+          The name field cannot be empty
+        </div>
       </div>
       <div class="form-group">
         <label for="quantity">Quantity</label>
@@ -29,6 +32,9 @@
           [(ngModel)]="currentItem.quantity"
           name="quantity"
         />
+        <div class="required" *ngIf="quantityRequired">
+          The quantity field cannot be empty
+        </div>
       </div>
       <div class="form-group">
         <label for="note">Note</label>

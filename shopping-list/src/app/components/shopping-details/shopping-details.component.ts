@@ -11,6 +11,8 @@ import { Location } from '@angular/common';
 export class ShoppingDetailsComponent implements OnInit {
   currentItem = null;
   message = '';
+  nameRequired = false;
+  quantityRequired = false;
 
   constructor(
     private shoppingService: ShoppingService,
@@ -44,16 +46,28 @@ export class ShoppingDetailsComponent implements OnInit {
       name: this.currentItem.name,
       quantity: this.currentItem.quantity,
       note: this.currentItem.note,
-      taked: this.currentItem.taked
+      taked: this.currentItem.taked,
     };
-    this.shoppingService.updateItem(this.currentItem._id, data).subscribe(
-      (response) => {
-        this.router.navigate(['/item']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (data.name === '') {
+      this.nameRequired = true;
+    } else {
+      this.nameRequired = false;
+    }
+    if (data.quantity === null) {
+      this.quantityRequired = true;
+    } else {
+      this.quantityRequired = false;
+    }
+    if (data.name !== '' && data.quantity !== null) {
+      this.shoppingService.updateItem(this.currentItem._id, data).subscribe(
+        (response) => {
+          this.router.navigate(['/item']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   deleteItem(): void {

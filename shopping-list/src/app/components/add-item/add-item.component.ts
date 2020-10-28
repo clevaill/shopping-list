@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AddItemComponent implements OnInit {
   item = {
     name: '',
-    quantity: '',
+    quantity: null,
     note: '',
     taked: false
   };
@@ -43,12 +43,12 @@ export class AddItemComponent implements OnInit {
     } else {
       this.nameRequired = false;
     }
-    if (data.quantity === '') {
+    if (data.quantity === null) {
       this.quantityRequired = true;
     } else {
       this.quantityRequired = false;
     }
-    if (data.name !== '' && data.quantity !== '') {
+    if (data.name !== '' && data.quantity !== null) {
       this.shoppingService.createItem(data).subscribe(
         (response) => {
           this.router.navigate(['/item']);
