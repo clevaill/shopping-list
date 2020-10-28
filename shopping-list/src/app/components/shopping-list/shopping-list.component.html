@@ -15,21 +15,18 @@
             *ngFor="let item of items; let i = index"
             [class.active]="i == currentIndex"
             (click)="setActiveItem(item, i)"
-            [class.no-check]="item.taked === false"
-            [class.check]="item.taked === true"
           >
-            <div class="item">
+            <div *ngIf="item.taked === false" class="item">
               {{ item.name }}
+            </div>
+            <div *ngIf="item.taked === true" class="item">
+              <del>{{ item.name }}</del>
             </div>
             <span class="badge badge-primary badge-pill">{{
               item.quantity
             }}</span>
           </li>
         </ul>
-        <div class="information">
-          <div class="green">To be taken</div>
-          <div class="red">It's taken</div>
-        </div>
       </nav>
       <div class="button">
         <button class="mt-3 btn btn-sm btn-secondary" (click)="backClicked()">
