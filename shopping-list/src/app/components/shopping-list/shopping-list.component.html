@@ -16,11 +16,20 @@
             [class.active]="i == currentIndex"
             (click)="setActiveItem(item, i)"
           >
-            <div *ngIf="item.taked === false" class="item">
-              {{ item.name }}
-            </div>
-            <div *ngIf="item.taked === true" class="item">
-              <del>{{ item.name }}</del>
+            <div class="item-container">
+              <div *ngIf="item.taked === false" class="item">
+                {{ item.name }}
+              </div>
+              <div *ngIf="item.taked === true" class="item">
+                <del>{{ item.name }}</del>
+              </div>
+              <div>
+                <svg-icon
+                  class="icon"
+                  *ngIf="item.note"
+                  src="assets/info.svg"
+                ></svg-icon>
+              </div>
             </div>
             <span class="badge badge-primary badge-pill">{{
               item.quantity
