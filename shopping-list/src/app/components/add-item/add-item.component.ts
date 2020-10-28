@@ -15,6 +15,9 @@ export class AddItemComponent implements OnInit {
     quantity: ''
   };
 
+  nameRequired = false;
+  quantityRequired = false;
+
   constructor(
     private shoppingService: ShoppingService,
     private _location: Location,
@@ -32,6 +35,12 @@ export class AddItemComponent implements OnInit {
       name: this.item.name,
       quantity: this.item.quantity
     };
+    if (data.name === ''){
+      this.nameRequired = true;
+    }
+    if (data.quantity === '') {
+      this.quantityRequired = true;
+    }
     if(data.name !== '' && data.quantity !== '') {
       this.shoppingService.createItem(data)
       .subscribe(

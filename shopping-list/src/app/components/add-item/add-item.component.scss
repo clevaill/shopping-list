@@ -11,6 +11,10 @@
         display: flex;
         justify-content: center;
     }
+    .required {
+        color: red;
+        font-size: small;
+    }
     .button {
         display: flex;
         justify-content: center;
